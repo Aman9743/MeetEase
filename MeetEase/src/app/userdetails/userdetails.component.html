@@ -1,0 +1,76 @@
+<div class="user-container">
+    <mat-dialog-content class="user-details">
+      <div class="main">
+        <div class="main-div">
+          <button mat-button mat-dialog-close class="main-box-btn">
+            <span class="material-symbols-outlined main-box-btn-icon">
+              close
+            </span>
+          </button>
+  
+          <div class="main-div-child_1">
+            <div class="main-div-child_1-imgbox">
+              <img
+                class="main-div-child_1-imgbox_img"
+                src="assets/Images/dummy-user.png"
+                alt=""
+              />
+            </div>
+            <span class="main-div-child_1-name">{{ name }}</span>
+  
+            <span class="main-div-child_1-profile">{{ memberrole }}</span>
+          </div>
+          <div class="main-div-child_2">
+            <div class="main-div-child_2-box1">
+              <span class="heading">age :</span>
+              <span class="content">{{ age }}</span>
+            </div>
+            <div class="main-div-child_2-box1">
+              <span class="heading">gender :</span>
+              <span class="content">{{ gender }}</span>
+            </div>
+            <div class="main-div-child_2-box1">
+              <span class="heading">email :</span>
+              <span class="content">{{ email }}</span>
+            </div>
+          </div>
+        </div>
+        <button class="edit-btn" (click)="showEditForm()"    mat-button
+        (click)="openDialog(data)" mat-dialog-close >Edit <span class="material-symbols-outlined edit-btn-icon">
+          edit
+          </span></button>
+      </div>
+    </mat-dialog-content>
+  </div>
+<!-- 
+  <div *ngIf="showform">
+    <div>
+      show
+    </div>
+  </div> -->
+  
+  
+  <!-- <h1>hello</h1>
+   <table>
+      <tr>
+          <th>NO.</th>
+          <th>ID</th>
+          <th>PASSWORD</th>
+      </tr>
+      <tr  *ngFor="let item of userDetails | keyvalue">
+  
+          <td>{{ item.key }}: {{ item.name }}</td>
+      
+      </tr>
+          < <td>{{i+1}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.age}}</td>
+      </tr> -->
+  <!-- <tr *ngFor ="let user of userDetails; let i =index">
+          <td>{{i+1}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.age}}</td>
+      </tr> -->
+  <!-- <button (click)="getData()">GET DATA</button>
+    </table> -->
+  

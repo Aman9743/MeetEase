@@ -1,0 +1,26 @@
+
+<div class="main">
+    <div class="main-left">
+      <div class="main-left-child">
+        <img
+          class="main-left-child_img"
+          src="assets/Images/dummy-user.png"
+          alt=""
+        />
+        <h3 class="main-left-child_heading">ADMIN NAME</h3>
+      </div>
+  
+      <button class="btn" routerLink="./" >
+        <span class="material-symbols-outlined"> empty_dashboard </span>DASHBOARD
+      </button>
+    
+      <button class="btn" routerLink="meetings">
+        <span class="material-symbols-outlined"> groups </span>MEETINGS
+      </button>
+     
+    </div>
+    <div class="main-right">
+    <router-outlet></router-outlet>
+    </div>
+  </div>
+

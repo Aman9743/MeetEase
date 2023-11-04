@@ -1,0 +1,100 @@
+<section>
+  <div>
+    <div class="main">
+      <div class="main-left">
+        <div class="main-left-child">
+          <img
+            class="main-left-child_img"
+            src="assets/Images/dummy-user.png"
+            alt=""
+          />
+          <h3 class="main-left-child_heading">{{ name }}</h3>
+        </div>
+
+        <button class="btn" routerLink="./">
+          <span class="material-symbols-outlined"> empty_dashboard </span
+          >DASHBOARD
+        </button>
+        <button class="btn" routerLink="user" *ngIf="!roleAccess">
+          <span class="material-symbols-outlined"> person </span> USERS
+        </button>
+        <button class="btn" routerLink="meetings">
+          <span class="material-symbols-outlined"> groups </span>MEETINGS
+        </button>
+      </div>
+      <div class="main-right">
+        <nav class="navbar">
+          <div class="navbar-left">
+            <img
+              class="navbar-left-logo"
+              src="../../assets/Images/logo2.jpg"
+              alt=""
+            />
+            <span class="navbar-left-name">Meeting Organizer</span>
+          </div>
+          <div class="navbar-right">
+            <!-- <button
+              class="navbar-right-notification"
+              matBadge="15"
+              matBadgeColor="warn"
+            >
+              <span
+                class="material-symbols-outlined navbar-right-notification-icon"
+              >
+                notifications
+              </span>
+            </button> -->
+            <button
+              mat-button
+              [matMenuTriggerFor]="beforeMenu"
+              class="navbar-right-notification"
+              matBadge="{{count}}"
+              matBadgeColor="warn"
+              (click)="showNtf()"
+            >
+              <span
+                class="material-symbols-outlined navbar-right-notification-icon"
+              >
+                notifications
+              </span>
+            </button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <div class="ntf_box">
+              <h3 class="ntf_box_heading">Notifications -</h3>
+              <p *ngIf="notificatonCount"> No Notifications Found</p>
+              <!-- {{notifications}} -->
+              <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, blanditiis. -->
+             <div *ngFor=" let noti of notifications let i=index;" class="noti_box" >
+              <div class="noti_box-child">
+       
+                <span class="noti_box-child-sr">{{i+1}} -</span>
+                <p class="noti_box-child-title">{{noti.title}}</p>
+              </div>
+           
+              <p class="noti_box-summary">{{noti.summary}}</p>
+             </div>
+
+            </div>
+            </mat-menu>
+            <!-- <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon> -->
+            <button
+              mat-button
+              (click)="openDialog()"
+              class="navbar-right-btnlogo"
+            >
+              <img
+                class="navbar-right-btnlogo-img"
+                src="../../assets/Images/dummy-user.png"
+                alt=""
+              />
+            </button>
+            <button class="navbar-right-logout" (click)="onLogout()">
+              LOGOUT
+            </button>
+          </div>
+        </nav>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

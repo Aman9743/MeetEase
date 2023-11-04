@@ -1,0 +1,47 @@
+@import "../../styles/Abstracts/variables";
+.warn{
+    background: linear-gradient(to right, #f1f5fc, rgb(224, 235, 255));
+    width: 15rem;
+    height: 10rem;
+}
+.main-div{
+
+
+    &-para{
+        font-size: 1rem;
+        font-weight: 600;
+        color: $primary-dark;
+        margin-bottom: 2rem;
+
+    }
+    &-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.yes-btn{
+    border: none;
+    background-color: $primary-dark;
+    color: white;
+    width: 5rem;
+    height: 1.9rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: .5rem;
+    border-radius: 5px;
+
+}
+.no-btn{
+    border: none;
+    background-color: $primary-dark;
+    color: white;
+    width: 5rem;
+    height: 1.9rem;
+    font-size: .9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 5px;
+
+}

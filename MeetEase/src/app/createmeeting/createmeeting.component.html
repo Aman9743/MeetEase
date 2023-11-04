@@ -1,0 +1,104 @@
+<div class="form--container">
+  <mat-dialog-content class="user-form">
+  <h1>{{ create ? "CREATE MEETING" : "UPDATE MEETING" }}</h1>
+  <form #registerUser="ngForm" [formGroup]="myForm">
+    <mat-form-field appearance="fill" class="input--feild">
+      <mat-label>Enter Meeting Title</mat-label>
+      <input
+        matInput
+        placeholder="Title"
+        name="title"
+        formControlName="title"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input--feild">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        placeholder="Description"
+        name="description"
+        formControlName="description"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input--feild">
+      <mat-label>Start Time</mat-label>
+      <input
+        matInput
+        placeholder="Enter Time"
+        name="start"
+        formControlName="start"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input--feild">
+      <mat-label>End Time</mat-label>
+      <input
+        matInput
+        placeholder="Enter Time"
+        name="end"
+        formControlName="end"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input--feild">
+      <mat-label>Consecutive Days</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="Consecutive"
+        name="consecutive"
+        formControlName="consecutive"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="input--feild" *ngIf="consUpdate">
+      <mat-label>Consecutive Update</mat-label>
+      <!-- <input matInput placeholder="Gender" name="gender" formControlName="gender" /> -->
+      <mat-select formControlName="consecutiveUpdate" >
+        <mat-option value="True">True</mat-option>
+        <mat-option value="False">False</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill" class="input--feild">
+      <mat-label>Members</mat-label>
+      <input
+        matInput
+        placeholder="Enter Members"
+        name="username"
+        formControlName="username"
+      />
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <mat-label>Members</mat-label>
+      <mat-select formControlName="username" multiple>
+        <!-- <mat-select-trigger>
+          {{username.value?.[0] || ''}}
+          <span *ngIf="(username.value?.length || 0) > 1" class="example-additional-selection">
+            (+{{(username.value?.length || 0) - 1}} {{username.value?.length === 2 ? 'other' : 'others'}})
+          </span>
+        </mat-select-trigger> -->
+        <mat-option *ngFor="let member of memberList" [value]="member">{{member}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <button (click)="onSubmit()">create</button> -->
+  </form>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn"
+    (click)="createMeeting(registerUser.value)"
+    mat-dialog-close
+  >
+    {{ create ? "Create Meeting" : "Update Meeting" }}
+  </button>
+
+  <button *ngIf="!create" mat-raised-button color="primary" class="btn" (click)="deleteMeeting()">Delete</button>
+
+  <button mat-raised-button mat-dialog-close class="btn">Cancel</button>
+</mat-dialog-content>
+</div>
+<!-- [disabled]="myForm.invalid" -->

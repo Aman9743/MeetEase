@@ -1,0 +1,98 @@
+<div class="parentdiv">
+  <div class="main">
+    <div class="main_left">
+      <div class="main_left-child">
+        <img
+          src="../../assets/Images/login image.jpg"
+          alt=""
+          class="backgroundimg"
+        />
+      </div>
+    </div>
+    <div class="main_right">
+      <div class="main_right-child">
+        <img
+          class="main_right-child-img"
+          src="../../assets/Images/dummy-user.png"
+          alt=""
+        />
+        <h1 class="heading-1">WELCOME</h1>
+        <!-- <h3 class="main_right-child-heading">Login Into Your Account</h3> -->
+        <div class="main_right-child-formdiv">
+          <form
+            #loginForm="ngForm"
+            (ngSubmit)="onDetailSubmit(loginForm.value)"
+            class="input-form"
+          >
+            <!-- <input type="text" value="Email Address"> -->
+            <p class="name-input">
+              <mat-form-field appearance="fill">
+                <mat-label>User Name</mat-label>
+                <input
+                  matInput
+                  placeholder="xyz"
+                  name="username"
+                  ngModel
+                  #username="ngModel"
+                  pattern="^[a-zA-Z0-9]*$"
+                  minlength="4"
+                  maxlength="12"
+                  required
+
+                />
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </p>
+            <p class="invalid-username">
+              <span *ngIf="username.invalid && username.touched">
+                Please Enter Valid Username</span
+              >
+            </p>
+            <!-- <input type="text" value="Password"> -->
+            <mat-form-field>
+              <mat-label>Enter your password</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                name="password"
+                ngModel
+                #password="ngModel"
+                minlength="4"
+                maxlength="12"
+                
+                required
+              />
+              <button
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <p class="invalid-pass">
+              <span *ngIf="password.invalid && password.touched">
+                Please Enter Valid password</span
+              >
+            </p>
+
+            <button
+              [disabled]="loginForm.invalid"
+              class="btn-login"
+              type="submit"
+            >
+              LOG IN
+            </button>
+            <button type="button" class="btn-forget" routerLink="./forgetpass" (click)="forgetPassword()">Forget Password?</button>
+            <p *ngIf="error">{{ message }}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

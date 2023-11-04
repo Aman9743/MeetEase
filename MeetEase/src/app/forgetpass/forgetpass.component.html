@@ -1,0 +1,71 @@
+
+<div class="main">
+<mat-card>
+
+    <div class="main-box">
+  <h2 class="form__heading">RESET PASSWORD :</h2>
+  <!-- Username section-->
+  <form [formGroup]="form" class="form">
+    <mat-form-field appearance="outline" class="input-field">
+      <mat-label>Enter Your Username</mat-label>
+      <input matInput placeholder="Enter your username" formControlName="username" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <div *ngIf="showForgot">
+      <!-- OTP section -->
+      <mat-form-field appearance="outline" *ngIf="showBox" class="input-field">
+        <mat-label>OTP</mat-label>
+        <input matInput placeholder="Enter otp" formControlName="otp" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onSubmitUsername()"
+        class="form__btn"
+        *ngIf="showbutton"
+      >
+        Submit
+      </button>
+      <mat-error *ngIf="showbutton">{{ error }}</mat-error>
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onSubmitOtp()"
+        class="form_btn"
+        *ngIf="!showbutton"
+      >
+        Send OTP
+      </button>
+      <mat-error *ngIf="!showbutton">{{ error }}</mat-error>
+    </div>
+
+    <div *ngIf="showUpdate">
+      <mat-form-field appearance="outline" class="input-field">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Enter new Password"
+          formControlName="password"
+        />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onSubmitPassword()"
+        class="form_btn"
+        *ngIf="showbtn1"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+</mat-card>
+</div>

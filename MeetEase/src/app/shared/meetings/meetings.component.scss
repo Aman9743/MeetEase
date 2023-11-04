@@ -1,0 +1,27 @@
+@import "../../../styles/Abstracts/variables";
+.box {
+  margin: 1rem 0rem;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &_btn {
+    margin-right: 1.5rem;
+    border: none;
+    background-color: $primary-dark;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+.meeting-calender {
+  margin-top: 1rem;
+  padding: 0rem 1.5rem;
+}
+full-calendar{
+  height: 35rem;
+}

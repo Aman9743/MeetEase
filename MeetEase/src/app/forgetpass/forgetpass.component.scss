@@ -1,0 +1,22 @@
+@import "../../styles/Abstracts/variables";
+.main{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  &-box{
+    background-color: $primary-main;
+    padding: 1.8rem;
+   
+  }
+}
+.form__btn{
+  display: block;
+  background-color: $primary-dark !important;
+  text-transform: uppercase;
+  color: white;
+}
+.input-field{
+  margin-bottom: 1.5rem;
+}
